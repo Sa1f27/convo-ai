@@ -10,7 +10,7 @@ import simpleaudio as sa
 SAMPLE_RATE = 16000
 DURATION = 6  # seconds
 VOICE_SAMPLE_PATH = r"C:\Users\DELL 3410\Projects\fast_app\interview\mohan-v.wav"
-OUTPUT_PATH = "output.wav"
+OUTPUT_PATH = "cloned-voice.wav"
 TEXT_TO_CLONE = "Artificial Intelligence, or AI, is revolutionizing our world by enabling machines to think, learn, and make decisions. From healthcare to finance, its applications are transforming industries while raising critical ethical concerns about privacy and fairness"
 
 # === STEP 1: Record voice (only if not already saved) ===
