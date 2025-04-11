@@ -1,11 +1,11 @@
-### 🧠 Convo-AI: Voice-Based Interview Suite
+# 🧠 Convo-AI: Voice-Based Interview Suite
 
 This project contains 3 AI-powered tools for real-time voice cloning, interviewing, and monitoring:
 
 ## 📂 Project Files
 
 - `xtts-1.py` – Clone your voice using Coqui XTTS-v2
-- `sttts.py` – Voice interview assistant using Groq (Whisper + LLM + TTS)
+- `stt-llm-tts.py` – Voice interview assistant using Groq (Whisper + LLM + TTS)
 - `gemini-live.py` – Real-time AI interviewer with webcam + audio via Google Gemini Live API
 
 ---
@@ -35,7 +35,7 @@ python xtts-1.py
 
 ### 🧑‍💻 Interview Assistant (Groq LLM + TTS)
 ```bash
-python sttts.py
+python stt-llm-tts.py
 ```
 
 ### 🎥 Live AI Interviewer (Gemini + Webcam)
@@ -59,4 +59,12 @@ Set these before running:
 - torch==2.5.1, torchaudio==2.5.1
 - Microphone, speakers, (optional: webcam)
 ```
-"# convo-ai" 
+
+
+echo "# convo-ai" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Sa1f27/convo-ai.git
+git push -u origin main
