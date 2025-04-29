@@ -1,13 +1,5 @@
-groq
-sounddevice
-numpy
-scipy
-wave
-TTS==0.22.0
-gruut[de,es,fr]==2.2.3
-gtts
-pydub
-simpleaudio
-edge-tts
-pyttsx3
-#pip install "networkx<3.0.0,>=2.5.0" --force-reinstall
+google-generativeai
+opencv-python
+pyaudio
+pillow
+mss
