@@ -1,70 +1,143 @@
 # 🧠 Convo-AI: Voice-Based Interview Suite
 
-This project contains 3 AI-powered tools for real-time voice cloning, interviewing, and monitoring:
+This repository provides two powerful AI-based systems for real-time interviews and testing using voice:
 
-## 📂 Project Files
-
-- `xtts-1.py` – Clone your voice using Coqui XTTS-v2
-- `stt-llm-tts.py` – Voice interview assistant using Groq (Whisper + LLM + TTS)
-- `gemini-live.py` – Real-time AI interviewer with webcam + audio via Google Gemini Live API
+1. 🎙️ **Gemini Live Interview Assistant** — Fully real-time system using Google Gemini for voice+video interviews  
+2. 🧪 **STT–LLM–TTS Pipeline** — Voice-based interview assistant using OpenAI, Groq Whisper, and local or cloud TTS options  
 
 ---
 
-## 🔧 Setup
+## 📁 Contents
+
+| File | Description |
+|------|-------------|
+| `main.py` | Gemini-based real-time streaming interview assistant |
+| `stt--llm-tts.py` | Local voice-based interview system with STT → GPT → TTS |
+| `requirements.txt` | All dependencies for both systems |
+| `README.md` | You're reading it! 👋 |
+
+---
+
+## ✅ Features
+
+### Gemini Live Interview (`main.py`)
+- Real-time AI voice assistant (powered by Gemini)
+- Camera or screen capture as context
+- Live audio streaming and TTS playback
+- Smart job description prompt
+- Follow-ups, silence detection, real-time conversation
+
+### STT–LLM–TTS System (`stt--llm-tts.py`)
+- Records your voice → transcribes using **Groq Whisper**
+- Passes transcription to **OpenAI GPT-4o-mini**
+- Detects off-topic answers and course-corrects
+- Converts AI response back to speech using:
+  - ✅ Edge TTS *(default)*
+  - ✅ pyttsx3 *(offline option)*
+  - ✅ Google TTS *(optional)*
+
+---
+
+## 🔧 Installation
 
 ```bash
-# 1. Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # On Windows
-
-# 2. Install dependencies
 pip install -r requirements.txt
+```
 
-# 3. (For XTTS) Download model
-python -m TTS.utils.download --model_name "tts_models/multilingual/multi-dataset/xtts_v2"
+### 📦 `requirements.txt`
+
+```
+google-generativeai
+openai
+pymongo
+pyodbc
+numpy
+sounddevice
+scipy
+opencv-python
+pyaudio
+pillow
+mss
+gtts
+pydub
+simpleaudio
+edge-tts
+```
+
+---
+
+## 🔐 Setup Environment Variables
+
+```bash
+# For Gemini
+export GEMINI_API_KEY=your_google_gemini_key
+
+# For OpenAI
+export OPENAI_API_KEY=your_openai_key
 ```
 
 ---
 
 ## ▶️ Usage
 
-### 🗣️ Voice Cloner (XTTS)
+### 🎤 Run Gemini Live Interview Assistant
+
 ```bash
-python xtts-1.py
+python main.py --mode camera
 ```
 
-### 🧑‍💻 Interview Assistant (Groq LLM + TTS)
-```bash
-python stt-llm-tts.py
-```
-
-### 🎥 Live AI Interviewer (Gemini + Webcam)
-```bash
-python gemini-live.py --mode camera
-```
+Modes:
+- `camera` → capture webcam
+- `screen` → capture screen
+- `none` → audio-only
 
 ---
 
-## 🔑 Environment Variables
+### 🧪 Run STT–LLM–TTS Voice Interview
 
-Set these before running:
-- `GROQ_API_KEY` – for Whisper + LLM (Groq)
-- `GEMINI_API_KEY` – for Gemini Live API
+```bash
+python stt--llm-tts.py
+```
+
+✅ Will ask up to 10 questions  
+✅ Detects silence to stop recording  
+✅ Stores Q/A in MongoDB or SQL Server if configured  
 
 ---
 
-## ✅ Requirements
+## ⚙️ Notes
 
-- Python 3.10 or 3.11
-- torch==2.5.1, torchaudio==2.5.1
-- Microphone, speakers, (optional: webcam)
+- Requires working **microphone** and optionally a **camera**
+- On Windows, for `pyaudio`, install via:
+
+```bash
+pip install pipwin
+pipwin install pyaudio
 ```
 
+- Groq's Whisper is assumed to be available (`groq` Python SDK required for `transcribe_audio_groq`)
+- Replace `fetch_transcript()` with your MongoDB logic for live data
 
-echo "# convo-ai" >> README.md
-git init
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Sa1f27/convo-ai.git
-git push -u origin main
+---
+
+## 📈 Roadmap
+
+- [ ] Auto scoring system
+- [ ] Resume parsing and matching
+- [ ] Proctoring: Eye/face detection (YOLO/MediaPipe)
+- [ ] Live dashboard for admins
+
+---
+
+## 📜 License
+
+MIT License.  
+Free for commercial and academic use. Credit appreciated! 🙌
+
+---
+
+Would you like me to also:
+- Export this into a downloadable `README.md` file?
+- Split the two apps into separate folders with their own configs?
+
+Let me know!
