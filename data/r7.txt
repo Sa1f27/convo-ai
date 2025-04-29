@@ -1,0 +1,1 @@
+How would you design a system to handle high traffic loads? What strategies would you implement to ensure scalability? Have you worked with cloud infrastructure before? What monitoring tools do you prefer?
