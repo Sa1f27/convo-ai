@@ -1,1 +1,0 @@
-Hello, my name is [Your Name]. I'm recording this sample to create a voice model that sounds like me. This voice will be used to conduct automated interviews in my application. I believe technology can help streamline the interview process while maintaining a personal touch.
