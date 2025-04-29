@@ -1,5 +1,15 @@
 google-generativeai
+openai
+pymongo
+pyodbc
+numpy
+sounddevice
+scipy
 opencv-python
 pyaudio
 pillow
 mss
+gtts
+pydub
+simpleaudio
+edge-tts
